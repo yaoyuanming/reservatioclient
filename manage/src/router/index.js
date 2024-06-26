@@ -50,7 +50,6 @@ export const constantRoutes = [
       path: 'content',
       name: 'content',
       component: () => import('@/views/content/index'),
-
     }]
   },
   {
@@ -89,7 +88,7 @@ export const constantRoutes = [
   {
     path: '/product',
     component: Layout,
-    name:'Product',
+    name: 'Product',
     children: [
       {
         path: 'product',

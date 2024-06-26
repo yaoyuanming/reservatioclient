@@ -43,8 +43,6 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
 
-
-
     </el-form>
   </div>
 </template>
@@ -103,17 +101,22 @@ export default {
       })
     },
     handleLogin() {
+      this.$router.push({ path: this.redirect || '/' })
+
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          //按钮loading效果
-          this.loading = true
-          this.$store.dispatch('user/login', this.loginForm).then(() => {
-            debugger
-            this.$router.push({ path: this.redirect || '/' })
-            this.loading = false
-          }).catch(() => {
-            this.loading = false
-          })
+          // 按钮loading效果
+          // this.loading = true
+          debugger
+          this.$router.push({ path: this.redirect || '/' })
+
+          // this.$store.dispatch('user/login', this.loginForm).then(() => {
+          //   debugger
+          //   this.$router.push({ path: this.redirect || '/' })
+          //   this.loading = false
+          // }).catch(() => {
+          //   this.loading = false
+          // })
         } else {
           console.log('请求失败!!')
           return false

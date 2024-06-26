@@ -41,13 +41,14 @@ export function goLogin() {
 		// #ifdef MP-WEIXIN
 		wx.login({
 			success: (res) => {
+				// 获取code 交给后台
 				const {
 					code
 				} = res;
 				wxlogin({
 					code
 				}).then((res) => {
-					uni.setStorageSync('token', res.data.token);
+					uni.setStorageSync('token', res.data?.token);
 					resolve()
 				});
 			}

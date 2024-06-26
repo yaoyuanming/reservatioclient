@@ -1,12 +1,18 @@
 import App from './App'
 import Vue from 'vue'
 import './uni.promisify.adaptor'
+import uView from './uni_modules/vk-uview-ui';
+
 Vue.config.productionTip = false
 App.mpType = 'app'
 
 // 导入并挂载全局的分享方法
 import share from '@/api/share.js'
+import store from './store/index.js';
+
+Vue.prototype.$store = store
 Vue.mixin(share)
+Vue.use(uView);
 // 挂载全局filter
 Vue.filter('timeUnitFormat', function(val) {
 	switch (val) {
@@ -34,6 +40,7 @@ Vue.filter('statusFormat', function(val) {
 	}
 })
 const app = new Vue({
-	...App
+	...App,
+	store
 })
 app.$mount()

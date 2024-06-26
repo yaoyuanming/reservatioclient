@@ -28,7 +28,7 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   // lintOnSave: process.env.NODE_ENV === 'development',
-  lintOnSave:false,  //关闭语法校验检测
+  lintOnSave: false, // 关闭语法校验检测
   productionSourceMap: false,
   devServer: {
     port: port,
@@ -37,7 +37,7 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    //配置代理跨域
+    // 配置代理跨域
     proxy: {
       '/reservationdevapi': {
         target: 'http://localhost:8083',
@@ -46,8 +46,8 @@ module.exports = {
           '^/reservationdevapi': ''
         }
       }
-    },
-    //开启mock数据
+    }
+    // 开启mock数据
     // before: require('./mock/mock-server.js')
   },
   configureWebpack: {
