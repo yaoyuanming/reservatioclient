@@ -62,6 +62,19 @@
             <artifactId>msfast-base-role</artifactId>
             <version>${msfast.base.common.version}</version>
         </dependency>
+
+        <!--swagger-ui-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.1</version>
+        </dependency>
+
     </dependencies>
 
     <repositories>
@@ -83,6 +96,7 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
+
     </repositories>
     <pluginRepositories>
         <pluginRepository>

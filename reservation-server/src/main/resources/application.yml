@@ -6,7 +6,7 @@ server:
     min-spare-threads: 30
     connection-timeout: 5000ms
   #port: 8083
-  port: ${SERVER_PORT}
+  port: ${SERVER_PORT:8080}
 
 spring:
   # jackson时间格式化
@@ -24,9 +24,9 @@ spring:
     #host: 127.0.0.1
     #port: 6379
     #password: 123456    # 密码（默认为空）
-    host: ${REDIS_HOST}
-    port: ${REDIS_PORT}
-    password: ${REDIS_PASSWORD}   # 密码（默认为空）
+    host: ${REDIS_HOST:172.17.0.2}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:jHWVClW8d05uqYc}   # 密码（默认为空）
     timeout: 6000ms  # 连接超时时长（毫秒）
     jedis:
       pool:
@@ -40,6 +40,7 @@ spring:
       matching-strategy: ant_path_matcher
   application:
     name: fast
+
   web:
     resources:
       static-locations: classpath:/static/,file:${wxmfast.config.file.static-path}
@@ -52,9 +53,9 @@ spring:
       #url: jdbc:mysql://127.0.0.1:3306/fast-reservation?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       #username: root
       #password: 123456
-      url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_DATABASE}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-      username: ${DB_USERNAME}
-      password: ${DB_PASSWORD}
+      url: jdbc:mysql://${DB_HOST:172.17.0.4}:${DB_PORT:3306}/${DB_DATABASE:fast-reservation}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: ${DB_USERNAME:root}
+      password: ${DB_PASSWORD:123456}
       initial-size: 10
       max-active: 100
       min-idle: 10
@@ -127,30 +128,30 @@ minio:
   #secretKey: 123456
   #bucketName: reservation
   #url: https://www.wxmblog.com
-  endpoint: ${MINIO_ENDPOINT}
-  accesskey: ${MINIO_ACCESSKEY}
-  secretKey: ${MINIO_SECRETKEY}
-  bucketName: ${MINIO_BUCKETNAME}
+  endpoint: ${MINIO_ENDPOINT:http://127.0.0.1:9000}
+  accesskey: ${MINIO_ACCESSKEY:admin}
+  secretKey: ${MINIO_SECRETKEY:admin123}
+  bucketName: ${MINIO_BUCKETNAME:reservation}
   url: ${MINIO_URL}
 
 #阿里云短信
 alisms:
-  #accessKeyId: LTAI4FSHDYpJ9vQZGGebn3mE 仅示例
-  #secret: AqA59q88D5fyAHSYEi226BVl5ZmlOG 仅示例
-  #signName: 莱妮生活馆 仅示例
-  #orderApply: SMS_462684522 仅示例
-  #orderCancel: SMS_462745866 仅示例
-  #orderComplete: SMS_462455808 仅示例
-  #orderStart: SMS_464545847 仅示例
-  #orderPersonStart: SMS_462450990 仅示例
-  accessKeyId: ${accessKeyId}
-  secret: ${secret}
-  signName: ${signName}
-  orderApply: ${订单申请模版}
-  orderCancel: ${订单取消模版}
-  orderComplete: ${订单已完成模版}
-  orderStart: ${订单即将开始通知顾客模版}
-  orderPersonStart: ${订单即将开始通知员工模版}
+  accessKeyId: ${ACCESS_KEY_ID}
+  secret: ${ACCESS_SECRET}
+  signName: 莱妮生活馆
+  orderApply: SMS_461185162
+  orderCancel: SMS_461185162
+  orderComplete: SMS_461185162
+  orderStart: SMS_461185162
+  orderPersonStart: SMS_461185162
+#  accessKeyId: ${accessKeyId}
+#  secret: ${secret}
+#  signName: ${signName}
+#  orderApply: ${订单申请模版}
+#  orderCancel: ${订单取消模版}
+#  orderComplete: ${订单已完成模版}
+#  orderStart: ${订单即将开始通知顾客模版}
+#  orderPersonStart: ${订单即将开始通知员工模版}
   timeout: 120
 
 
@@ -166,25 +167,25 @@ wxmfast:
     auth:
       wxapplet:
         #微信小程序 appid和秘钥串
-        #appId: wxf3f8dy584eb97103 仅示例
-        #secret: 89906464aecf7hy4o8d802260c4bf4fb 仅示例
-        appId: ${微信小程序appid}
-        secret: ${微信小程序secret}
+        appId: wx67306f9116c487d3
+        secret: 4d31aafa156b433cec0dac96ac8b5cea
+#        appId: ${微信小程序appid}
+#        secret: ${微信小程序secret}
     common:
       enable-swagger: true
     role:
-      #username: admin
-      #password: 1234566
-      username: ${后台管理员登录账号}
-      password: ${后台管理员登录密码}
+      username: admin
+      password: 1234566
+#      username: ${后台管理员登录账号:admin}
+#      password: ${后台管理员登录密码:1234566}
 wx:
   #微信小程序 消息订阅通知 模板
   #template: Jjvu5i4MqSJUDSDFGL1f6U9wGKz0uNu8kJcBs 仅示例
-  template: Jjvu5i4MDGOIUGtRu09mSA1jlwL1f6U9Kz0uNu8kJcBs
-#businessName: 莱特妮丝
-#businessPhone: 15902393423
-businessName: ${店铺名称}
-businessPhone: ${商家电话}
+  template: Jjvu5i4MqSJUDSDFGL1f6U9wGKz0uNu8kJcBs
+businessName: 莱特妮丝
+businessPhone: 15902393423
+#businessName: ${店铺名称:莱特妮丝}
+#businessPhone: ${商家电话:15902393423}
 
 
 

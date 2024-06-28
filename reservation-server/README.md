@@ -26,3 +26,6 @@ minio<br>
 
 MMRWXM <br>
 如果有什么问题咨询或者建议，合作等，都可以添加我的微信，交流学习
+
+
+docker run -d --restart=always --network=release-network -p 9000:9000 -p 9001:9001 --name minio -e "MINIO_ROOT_USER=admin" -e "MINIO_ROOT_PASSWORD=admin123" -v /root/minio:/data minio/minio server /data --console-address ":9001"
