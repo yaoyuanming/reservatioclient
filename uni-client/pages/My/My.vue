@@ -70,7 +70,7 @@ export default {
 			userInfo: null,
 			myBg: '',
 			safeTopHeight: null,
-			current: 2,
+			current: 3,
 			tabBarList: tabbar.userTab,
 			text: ''
 		};

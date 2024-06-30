@@ -12,6 +12,12 @@ const userTab = [{
 		"text": "预约",
 	},
 	{
+		"pagePath": "/pages/Lesson/Lesson",
+		iconPath: "grid",
+		selectedIconPath: "grid-fill",
+		"text": "课程",
+	},
+	{
 		iconPath: "account",
 		"pagePath": "/pages/My/My",
 		selectedIconPath: "account-fill",
