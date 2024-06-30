@@ -51,6 +51,11 @@
 			</view>
 		</view>
 		<againReservate ref="againReservate" :text="text"></againReservate>
+		<u-tabbar
+			v-model="current"
+			:list="tabBarList"
+			:border-top="true"
+		/>
 	</view>
 </template>
 
@@ -58,12 +63,15 @@
 import { getUserInfo } from '@/api/user.js';
 import { myBg } from '@/utils/imgBase64.js';
 import { isLogin, goLogin } from '@/utils/index.js';
+import tabbar from '@/utils/tabbar'
 export default {
 	data() {
 		return {
 			userInfo: null,
 			myBg: '',
 			safeTopHeight: null,
+			current: 2,
+			tabBarList: tabbar.userTab,
 			text: ''
 		};
 	},
@@ -73,6 +81,9 @@ export default {
 		}
 	},
 	onLoad() {
+		uni.hideTabBar({
+			animation: false
+		})
 		this.myBg = myBg;
 		this.handleGetUserInfo();
 		const res = uni.getWindowInfo();
@@ -84,6 +95,7 @@ export default {
 	methods: {
 		handleGetUserInfo() {
 			getUserInfo().then((res) => {
+				console.log('获取用户信息', res)
 				this.userInfo = res.data;
 				console.log(this.userInfo, '-------------');
 			});

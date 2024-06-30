@@ -1,6 +1,7 @@
 <template>
 	<view style="padding-bottom: 10rpx">
 		<view style="height: 422rpx"><image mode="aspectFill" :src="homeData.mainImg" style="width: 100%; height: 422rpx"></image></view>
+		<!-- 门铺 -->
 		<view class="shop">
 			<view class="shop-logo"><image mode="aspectFill" :src="homeData.preImg" style="width: 144rpx; height: 144rpx"></image></view>
 			<view class="shop-info">
@@ -15,7 +16,8 @@
 				</view>
 			</view>
 		</view>
-		<view class="coupon" style="background-image: url('/static/images/home/home-bg.png')">优惠项目</view>
+		<!-- 推荐项目 -->
+		<view class="coupon" style="background-image: url('/static/images/home/home-bg.png')">推荐项目</view>
 		<view class="project-list">
 			<view class="project-item" v-for="product in productList" :key="product.id" @tap="handleProductDetail(product.id)">
 				<view class="project-image"><image :src="product.preImg" mode="aspectFill"></image></view>
@@ -31,19 +33,32 @@
 		</view>
 		<uni-load-more v-if="loading" status="loading"></uni-load-more>
 		<view v-if="noMoreShow" class="no-more regular">暂无更多了～</view>
+		<u-tabbar
+			v-model="current"
+			:list="tabBarList"
+			:border-top="true"
+		/>
 	</view>
 </template>
 
 <script>
 import { getHomeData, getSystemConfig } from '@/api/home.js';
 import { getCouponProductList } from '@/api/product.js';
+import tabbar from '@/utils/tabbar'
+
 export default {
 	data() {
 		return {
+			title: '首页',
+			// tabBarList: this.$store.state.dynamicTabbar,
+			tabBarList: tabbar.userTab,
+			current: 0,
+			inactiveColor: '#909399',
+			activeColor: '#5098FF',
 			homeData: {},
 			params: {
 				pageIndex: 1,
-				pageSize: 10
+				pageSize: 10,
 			},
 			total: 0,
 			productList: [],
@@ -54,6 +69,15 @@ export default {
 		};
 	},
 	onLoad() {
+		uni.hideTabBar({
+			animation: false
+		})
+		this.$store.dispatch('changeTabbar', tabbar.userTab)
+		console.log('userTab', tabbar.userTab, this.tabBarList)
+		// uni.switchTab({
+		// 	url: '/pages/Home/Home'
+		// })
+
 		getHomeData().then(res => {
 			this.homeData = res.data;
 		});
@@ -71,6 +95,7 @@ export default {
 		getList() {
 			this.loading = true;
 			getCouponProductList(this.params).then(res => {
+				console.log('产品', res)
 				this.loading = false;
 				this.total = res.data.totalCount;
 				this.productList = this.productList.concat(res.data.rows);

@@ -52,6 +52,11 @@
 		<view class="btn" @tap="handleNow">立即预约</view>
 		<againReservate ref="againReservate" :text="text" @link="handleRouteLink"></againReservate>
 		<reservateTime ref="reservateTime" @confirm="handleConfirm"></reservateTime>
+		<u-tabbar
+			v-model="current"
+			:list="tabBarList"
+			:border-top="true"
+		/>
 	</view>
 </template>
 
@@ -59,9 +64,13 @@
 import { getPersonnelInfo } from '@/api/reservate.js';
 import { createOrder } from '@/api/order.js';
 import { isLogin, goLogin } from '@/utils/index.js';
+import tabbar from '@/utils/tabbar'
+
 export default {
 	data() {
 		return {
+			current: 1,
+			tabBarList: tabbar.userTab,
 			orderForm: {
 				contacts: '',
 				personId: '',
@@ -76,6 +85,9 @@ export default {
 		};
 	},
 	async onLoad() {
+		uni.hideTabBar({
+			animation: false
+		})
 		// 获取用户信息补充
 		const res = await getPersonnelInfo();
 		if(res.code==200)
