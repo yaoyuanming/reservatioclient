@@ -45,6 +45,7 @@ export function goLogin() {
 				const {
 					code
 				} = res;
+				console.log('获取code', code);
 				wxlogin({
 					code
 				}).then((res) => {

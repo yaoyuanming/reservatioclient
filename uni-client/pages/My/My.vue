@@ -86,7 +86,7 @@ export default {
 			getUserInfo().then((res) => {
 				console.log('获取用户信息', res)
 				this.userInfo = res.data;
-				console.log(this.userInfo, '-------------');
+				console.log('userInfo', this.userInfo, '-------------');
 			});
 		},
 		handleShowOrder(type) {
