@@ -18,6 +18,12 @@ const userTab = [{
 		"text": "课程",
 	},
 	{
+		"pagePath": "/pages/Salon/Salon",
+		iconPath: "calendar",
+		selectedIconPath: "calendar-fill",
+		"text": "沙龙",
+	},
+	{
 		iconPath: "account",
 		"pagePath": "/pages/My/My",
 		selectedIconPath: "account-fill",

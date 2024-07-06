@@ -31,6 +31,16 @@
 				"backgroundColorBottom": "#ffffff"
 			}
 		}, {
+			"path": "pages/Salon/Salon",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#ffffff",
+				"enablePullDownRefresh": false,
+				"backgroundColor": "#ffffff",
+				"backgroundColorTop": "#ffffff",
+				"backgroundColorBottom": "#ffffff"
+			}
+		}, {
 			"path": "pages/My/My",
 			"style": {
 				"navigationStyle": "custom",
@@ -146,6 +156,9 @@
 			},
 			{
 				"pagePath": "pages/Lesson/Lesson"
+			},
+			{
+				"pagePath": "pages/Salon/Salon"
 			},
 			{
 				"pagePath": "pages/My/My"

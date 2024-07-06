@@ -3,7 +3,7 @@ const baseURl = `${location.protocol}//${location.host}/reservationdevapi`
 // #endif
 
 // #ifdef MP-WEIXIN
-export const baseURl = 'https://www.wxmblog.com/reservationdevapi'
+export const baseURl = 'http://8.130.31.211:86'
 //export const baseURl = 'http://localhost:8083/'
 // #endif
 

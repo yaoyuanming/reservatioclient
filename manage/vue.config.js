@@ -40,7 +40,7 @@ module.exports = {
     //配置代理跨域
     proxy: {
       '/reservationdevapi': {
-        target: 'http://localhost:8083',
+        target: 'http://8.130.31.211:86/',
     	changeOrigin: true,
         pathRewrite: {
           '^/reservationdevapi': ''
