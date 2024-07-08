@@ -167,8 +167,8 @@ wxmfast:
     auth:
       wxapplet:
         #微信小程序 appid和秘钥串
-        appId: wx67306f9116c487d3
-        secret: 4d31aafa156b433cec0dac96ac8b5cea
+        appId: wxac3556487f9bd35e
+        secret: 419da4ee71d6ebf241a0b40915fe4928
 #        appId: ${微信小程序appid}
 #        secret: ${微信小程序secret}
     common:

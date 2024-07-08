@@ -24,7 +24,7 @@ sudo docker stop release-xym-server && sudo docker rm release-xym-server
 
 # 运行 Docker 容器
 sudo docker run \
-  -p 85:8080 \
+  -p 86:8080 \
   -v /root/key:/var/key \
   -v /root/sensitive:/var/sensitive \
   -e DB_HOST=release-mysql \

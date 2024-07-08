@@ -1,4 +1,4 @@
-FROM openjdk:latest
+FROM openjdk:8
 ARG TARGETARCH
 MAINTAINER yaoyuanming "yaoyuanming0601@gmail.com"
 
