@@ -181,7 +181,7 @@ wxmfast:
 wx:
   #微信小程序 消息订阅通知 模板
   #template: Jjvu5i4MqSJUDSDFGL1f6U9wGKz0uNu8kJcBs 仅示例
-  template: Jjvu5i4MqSJUDSDFGL1f6U9wGKz0uNu8kJcBs
+  template: vAu2OOzP7mxiKIJQAjGD1U0Nc_ZFQyJMqpExlbHaUnI
 businessName: 莱特妮丝
 businessPhone: 15902393423
 #businessName: ${店铺名称:莱特妮丝}
